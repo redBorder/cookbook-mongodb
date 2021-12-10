@@ -2,12 +2,14 @@ Name: cookbook-mongodb
 Version: %{__version}
 Release: %{__release}%{?dist}
 BuildArch: noarch
-Summary: MongoDB cookbook to install and configure it in redborder environments
 
 License: AGPL 3.0
 URL: https://github.com/redBorder/cookbook-mongodb
 Source0: %{name}-%{version}.tar.gz
 
+Requires: dos2unix
+
+Summary: MongoDB cookbook to install and configure it in redborder environments
 %description
 %{summary}
 
@@ -21,10 +23,13 @@ mkdir -p %{buildroot}/var/chef/cookbooks/mongodb
 cp -f -r  resources/* %{buildroot}/var/chef/cookbooks/mongodb/
 chmod -R 0755 %{buildroot}/var/chef/cookbooks/mongodb
 install -D -m 0644 README.md %{buildroot}/var/chef/cookbooks/mongodb/README.md
+mkdir -p %{buildroot}/usr/lib/redborder/scripts
+cp resources/scripts/* %{buildroot}/usr/lib/redborder/scripts
 
 %pre
 
 %post
+/usr/lib/redborder/bin/rb_rubywrapper.sh -c
 case "$1" in
   1)
     # This is an initial install.

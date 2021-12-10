@@ -7,13 +7,13 @@ action :add do
   begin
 
     # install package
-    yum_package "mongodb" do
+    yum_package "mongodb-org" do
       action :install
       flush_cache [ :before ]
     end
 
-    service "mongodb" do
-      service_name "mongodb"
+    service "mongod" do
+      service_name "mongod"
       ignore_failure true
       supports :status => true, :restart => true, :enable => true
       action [:start, :enable]
@@ -26,7 +26,7 @@ action :add do
       mode 0644
       retries 2
       cookbook "mongodb"
-      notifies :restart, "service[mongodb]", :delayed
+      notifies :restart, "service[mongod]", :delayed
     end
 
       Chef::Log.info("mongodb has been configured correctly.")
@@ -38,16 +38,14 @@ end
 action :remove do
   begin
 
-    logdir = new_resource.logdir
-
-    service "mongodb" do
+    service "mongod" do
       ignore_failure true
       supports :status => true, :enable => true
       action [:stop, :disable]
     end
 
     # uninstall package
-    yum_package "mongodb" do
+    yum_package "mongodb-org" do
      action :remove
     end
     #
