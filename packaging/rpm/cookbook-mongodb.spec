@@ -46,6 +46,8 @@ esac
 /var/chef/cookbooks/mongodb
 %defattr(0644,root,root)
 /var/chef/cookbooks/mongodb/README.md
+%defattr(0755,root,root)
+/usr/lib/redborder/scripts/rb_vulnerability_load_cvedb.rb
 
 %doc
 
