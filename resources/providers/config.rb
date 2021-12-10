@@ -12,7 +12,6 @@ action :add do
       flush_cache [ :before ]
     end
 
-
     service "mongodb" do
       service_name "mongodb"
       ignore_failure true
@@ -20,7 +19,17 @@ action :add do
       action [:start, :enable]
     end
 
-    Chef::Log.info("mongodb has been configured correctly.")
+    template "/etc/mongod.conf" do
+      source "mongod.conf.erb"
+      owner "root"
+      owner "root"
+      mode 0644
+      retries 2
+      cookbook "mongodb"
+      notifies :restart, "service[mongodb]", :delayed
+    end
+
+      Chef::Log.info("mongodb has been configured correctly.")
   rescue => e
     Chef::Log.error(e.message)
   end
