@@ -52,5 +52,7 @@ esac
 %doc
 
 %changelog
+* Mon Jun 19 2023 Luis J. Blanco Mier <ljblanco@redborder.com> - 
+- Fix checking mongo is active. Adding exit flags to provoke the script when mongo is not ready
 * Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
 - first spec version
