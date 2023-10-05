@@ -7,7 +7,7 @@ action :add do
   begin
 
     # install package
-    yum_package "mongodb-org" do
+    dnf_package "mongodb-org" do
       action :install
       flush_cache [ :before ]
     end
@@ -45,7 +45,7 @@ action :remove do
     end
 
     # uninstall package
-    yum_package "mongodb-org" do
+    dnf_package "mongodb-org" do
      action :remove
     end
     #
