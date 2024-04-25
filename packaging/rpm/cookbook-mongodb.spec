@@ -29,7 +29,8 @@ cp resources/scripts/* %{buildroot}/usr/lib/redborder/scripts
 %pre
 
 %post
-/usr/lib/redborder/bin/rb_rubywrapper.sh -c
+[ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
+
 case "$1" in
   1)
     # This is an initial install.
