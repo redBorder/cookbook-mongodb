@@ -53,5 +53,8 @@ esac
 %doc
 
 %changelog
-* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
+* Thu Apr 24 2024 Miguel Negrón <manegron@redborder.com>
+- Fix ruby wrapper call
+
+* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com>
 - first spec version
