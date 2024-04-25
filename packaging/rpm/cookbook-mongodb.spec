@@ -31,7 +31,8 @@ cp resources/scripts/* %{buildroot}/usr/lib/redborder/scripts
 %pre
 
 %post
-/usr/lib/redborder/bin/rb_rubywrapper.sh -c
+[ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
+
 case "$1" in
   1)
     # This is an initial install.
@@ -54,7 +55,11 @@ esac
 %doc
 
 %changelog
-* Mon Jun 19 2023 Luis J. Blanco Mier <ljblanco@redborder.com> - 
+* Thu Apr 24 2024 Miguel Negrón <manegron@redborder.com>
+- Fix ruby wrapper call
+
+* Mon Jun 19 2023 Luis J. Blanco Mier <ljblanco@redborder.com> 
 - Fix checking mongo is active. Adding exit flags to provoke the script when mongo is not ready
-* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
+
+ Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com>
 - first spec version
