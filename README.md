@@ -4,7 +4,7 @@ cookbook to install and configure mongodb in Redborder NG
 
 ### Platforms
 
-- Centos 7
+- Rocky Linux 9
 
 ### Chef
 

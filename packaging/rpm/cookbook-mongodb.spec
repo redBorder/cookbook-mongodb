@@ -1,3 +1,5 @@
+%undefine __brp_mangle_shebangs
+
 Name: cookbook-mongodb
 Version: %{__version}
 Release: %{__release}%{?dist}
@@ -56,5 +58,8 @@ esac
 * Thu Apr 24 2024 Miguel Negrón <manegron@redborder.com>
 - Fix ruby wrapper call
 
-* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com>
+* Mon Jun 19 2023 Luis J. Blanco Mier <ljblanco@redborder.com> 
+- Fix checking mongo is active. Adding exit flags to provoke the script when mongo is not ready
+
+ Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com>
 - first spec version

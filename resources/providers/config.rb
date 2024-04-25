@@ -7,7 +7,7 @@ action :add do
   begin
 
     # install package
-    yum_package "mongodb-org" do
+    dnf_package "mongodb-org" do
       action :install
       flush_cache [ :before ]
     end
@@ -45,7 +45,7 @@ action :remove do
     end
 
     # uninstall package
-    yum_package "mongodb-org" do
+    dnf_package "mongodb-org" do
      action :remove
     end
     #
@@ -71,7 +71,7 @@ action :register do #Usually used to register in consul
         action :nothing
       end.run_action(:run)
 
-      node.set["mongodb"]["registered"] = true
+      node.normal["mongodb"]["registered"] = true
     end
     Chef::Log.info("mongodb service has been registered in consul")
   rescue => e
@@ -87,7 +87,7 @@ action :deregister do #Usually used to deregister from consul
         action :nothing
       end.run_action(:run)
 
-      node.set["mongodb"]["registered"] = false
+      node.normal["mongodb"]["registered"] = false
     end
     Chef::Log.info("mongodb service has been deregistered from consul")
   rescue => e
