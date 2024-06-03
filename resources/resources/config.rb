@@ -1,7 +1,5 @@
-# Cookbook Name:: mongodb
-#
+# Cookbook:: mongodb
 # Resource:: config
-#
+
 actions :add, :remove, :register, :deregister
 default_action :add
-

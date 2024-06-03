@@ -1,2 +1,2 @@
 # default attributes
-default["mongodb"]["registered"] = false
+default['mongodb']['registered'] = false
