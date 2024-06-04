@@ -1,6 +1,17 @@
-# mongodb cookbook
+# cookbook-mongodb
+[![Build Status][build-shield]][build-url]
+[![Linters][linters-shield]][linters-url]
+[![License][license-shield]][license-url]
 
-cookbook to install and configure mongodb in Redborder NG
+<!-- Badges -->
+[build-shield]: https://github.com/redBorder/cookbook-minio/actions/workflows/rpm.yml/badge.svg?branch=master
+[build-url]: https://github.com/redBorder/cookbook-minio/actions/workflows/rpm.yml?query=branch%3Amaster
+[linters-shield]: https://github.com/redBorder/cookbook-minio/actions/workflows/lint.yml/badge.svg?event=push
+[linters-url]: https://github.com/redBorder/cookbook-minio/actions/workflows/lint.yml
+[license-shield]: https://img.shields.io/badge/license-AGPLv3-blue.svg
+[license-url]: https://github.com/cookbook-minio/blob/HEAD/LICENSE
+
+Chef cookbook to install and configure mongodb in redborder
 
 ### Platforms
 
@@ -8,7 +19,7 @@ cookbook to install and configure mongodb in Redborder NG
 
 ### Chef
 
-- Chef 12.0 or later
+- Chef 15.7.0 or later
 
 ## Contributing
 
@@ -19,8 +30,6 @@ cookbook to install and configure mongodb in Redborder NG
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request using Github
 
-## License and Authors
+## License
 
-Authors: Javier Rodriguez <javiercrg@redborder.com>
-
-LICENSE: AFFERO GENERAL PUBLIC LICENSE, Version 3, 19 November 2007
+GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
