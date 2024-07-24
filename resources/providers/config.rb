@@ -57,7 +57,7 @@ action :register do
       query = {}
       query['ID'] = "mongodb-#{node['hostname']}"
       query['Name'] = 'mongodb'
-      query['Address'] = "#{node['ipaddress']}"
+      query['Address'] = "#{node['ipaddress_sync']}"
       query['Port'] = 27017
       json_query = Chef::JSONCompat.to_json(query)
 
