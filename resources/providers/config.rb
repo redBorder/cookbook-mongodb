@@ -26,6 +26,8 @@ action :add do
       notifies :restart, 'service[mongod]', :delayed
     end
 
+    node.default['redborder']['services']['mongodb'] = true
+
     Chef::Log.info('mongodb has been configured correctly.')
   rescue => e
     Chef::Log.error(e.message)
@@ -44,6 +46,8 @@ action :remove do
     dnf_package 'mongodb-org' do
       action :remove
     end
+
+    node.default['redborder']['services']['mongodb'] = false
 
     Chef::Log.info('mongodb has been deleted correctly.')
   rescue => e
