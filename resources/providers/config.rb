@@ -26,7 +26,8 @@ action :add do
       notifies :restart, 'service[mongod]', :delayed
     end
 
-    node.default['redborder']['services']['mongodb'] = true
+    node.normal['redborder']['services']['mongodb'] = true
+    node.normal['redborder']['services']['overwrite']['mongodb'] = true
 
     Chef::Log.info('mongodb has been configured correctly.')
   rescue => e
@@ -47,7 +48,8 @@ action :remove do
       action :remove
     end
 
-    node.default['redborder']['services']['mongodb'] = false
+    node.normal['redborder']['services']['mongodb'] = false
+    node.normal['redborder']['services']['overwrite']['mongodb'] = false
 
     Chef::Log.info('mongodb has been deleted correctly.')
   rescue => e
