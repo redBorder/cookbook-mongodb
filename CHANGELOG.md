@@ -1,6 +1,12 @@
 cookbook-mongodb CHANGELOG
 ===============
 
+## 0.0.7
+
+  - nilsver
+    - [3aed554] change rbcli status
+    - [9996492] integrate mongodb for rocky9
+
 ## 0.0.6
 
   - Miguel Negron
