@@ -26,6 +26,9 @@ action :add do
       notifies :restart, 'service[mongod]', :delayed
     end
 
+    node.normal['redborder']['services']['mongodb'] = true
+    node.normal['redborder']['services']['overwrite']['mongodb'] = true
+
     Chef::Log.info('mongodb has been configured correctly.')
   rescue => e
     Chef::Log.error(e.message)
@@ -45,6 +48,9 @@ action :remove do
       action :remove
     end
 
+    node.normal['redborder']['services']['mongodb'] = false
+    node.normal['redborder']['services']['overwrite']['mongodb'] = false
+
     Chef::Log.info('mongodb has been deleted correctly.')
   rescue => e
     Chef::Log.error(e.message)
@@ -57,7 +63,7 @@ action :register do
       query = {}
       query['ID'] = "mongodb-#{node['hostname']}"
       query['Name'] = 'mongodb'
-      query['Address'] = "#{node['ipaddress']}"
+      query['Address'] = "#{node['ipaddress_sync']}"
       query['Port'] = 27017
       json_query = Chef::JSONCompat.to_json(query)
 
