@@ -29,6 +29,9 @@ mkdir -p %{buildroot}/usr/lib/redborder/scripts
 cp resources/scripts/* %{buildroot}/usr/lib/redborder/scripts
 
 %pre
+if [ -d /var/chef/cookbooks/mongodb ]; then
+    rm -rf /var/chef/cookbooks/mongodb
+fi
 
 %post
 [ -f /usr/lib/redborder/bin/rb_rubywrapper.sh ] && /usr/lib/redborder/bin/rb_rubywrapper.sh -c
@@ -44,6 +47,12 @@ case "$1" in
   ;;
 esac
 
+%postun
+# Deletes directory when uninstall the package
+if [ "$1" = 0 ] && [ -d /var/chef/cookbooks/mongodb ]; then
+  rm -rf /var/chef/cookbooks/mongodb
+fi
+
 %files
 %defattr(0755,root,root)
 /var/chef/cookbooks/mongodb
@@ -55,6 +64,9 @@ esac
 %doc
 
 %changelog
+* Thu Oct 10 2024 Miguel Negrón <manegron@redborder.com>
+- Add pre and postun
+
 * Thu Apr 24 2024 Miguel Negrón <manegron@redborder.com>
 - Fix ruby wrapper call
 
