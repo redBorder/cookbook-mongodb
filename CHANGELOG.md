@@ -1,6 +1,11 @@
 cookbook-mongodb CHANGELOG
 ===============
 
+## 0.0.9
+
+  - nilsver
+    - [4f856e9] remove flush cache
+
 ## 0.0.8
 
   - Miguel Negrón
