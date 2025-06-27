@@ -6,7 +6,6 @@ action :add do
     # install package
     dnf_package 'mongodb-org' do
       action :install
-      flush_cache [ :before ]
     end
 
     service 'mongod' do
