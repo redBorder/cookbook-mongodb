@@ -1,6 +1,11 @@
 cookbook-mongodb CHANGELOG
 ===============
 
+## 0.0.10
+
+  - manegron
+    - [036b03a] Upload cookbook only if opscode-erchef is active
+
 ## 0.0.9
 
   - nilsver
